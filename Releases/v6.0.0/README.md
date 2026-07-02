@@ -1,5 +1,9 @@
 <div align="center">
 
+<img src="https://raw.githubusercontent.com/danielmiessler/LifeOS/main/images/lifeos-logo.png" alt="LifeOS" width="200">
+
+<br/>
+
 # LifeOS 6.0.0
 
 **The first release under the LifeOS name — and the whole system now ships as one self-contained skill.**

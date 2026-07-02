@@ -169,6 +169,12 @@ We very much believe in AI-based installation and modification of LifeOS. Once y
 
 ### One-line install (recommended)
 
+<div align="center">
+
+<a href="https://ourlifeos.ai"><img src="./images/lifeos-install.png" alt="curl -fsSL https://ourlifeos.ai/install.sh | bash" width="720"></a>
+
+</div>
+
 ```bash
 curl -fsSL https://ourlifeos.ai/install.sh | bash
 ```
