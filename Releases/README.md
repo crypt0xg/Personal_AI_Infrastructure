@@ -1,8 +1,15 @@
+<!--
+  GENERATED FILE — do not hand-edit the release list below.
+  Source of truth: Releases/releases.json
+  Regenerate:      bun Tools/GenerateReleasesPage.ts
+  A release dir with no manifest entry FAILS the build, so this text always
+  matches the version directories GitHub shows above it.
+-->
 <div align="center">
 
-<img src="release-icon-v2.png" alt="PAI Releases" width="256">
+<img src="releases-icon.png" alt="LifeOS Releases" width="220">
 
-# PAI Releases
+# LifeOS Releases
 
 </div>
 
@@ -10,17 +17,77 @@
 
 ## What Are Releases?
 
-Releases are **complete `.claude/` directories** ready to drop into your home folder. Each release contains everything you need: skills, hooks, workflows, memory structure, and configuration.
+LifeOS ships as a **single self-contained skill** — your AI installs it for you. Each release is a versioned snapshot of that skill. There's no `~/.claude/` directory to copy; installing the skill *is* the install.
 
-This is the fastest way to get PAI running. Copy the directory, run the wizard, restart Claude Code.
-
-> **Note:** The `.claude` directory is hidden by default on macOS/Linux. Use `ls -la` to see it.
+**About the older releases.** LifeOS began as **PAI (Personal AI Infrastructure)**, and back then it shipped as a `~/.claude/` directory you installed into your home folder. Releases **v2.3–v5.0.0** are that era — kept here for history, not for new installs. **v6.0.0** is the first skill-based release and the current model. Same system, same lineage — just no longer a `.claude/` directory.
 
 ---
 
 ## Available Releases
 
-### v4.0.3 — Community PR Patch (Current)
+### v6.0.5 — Rename in the Code, New Harvest Skill (Current)
+
+Carries the PAI→LifeOS rename the rest of the way through the codebase, adds the Harvest skill, and sharpens the Algorithm's verification doctrine. Same system as 6.0.0, cleaner throughout.
+
+- PAI→LifeOS rename reaches the code — identifiers and prose read LifeOS throughout; runtime-critical paths left byte-identical on purpose
+- New Harvest skill — mine any URL, video, or article for what's useful to your LifeOS; report-only
+- Algorithm v6.24.0 — motion verification: animation, transition, and multi-step-flow ISCs close on a frame-scrub gallery, not a single screenshot
+- Installer fix — bootstrap install.sh now fetches the version it advertises
+
+**[Get v6.0.5 →](v6.0.5/)**
+
+---
+
+### v6.0.3 — Comprehensive AI-native install
+
+Makes the install doc comprehensive and gets the constitutional layer loading on its own.
+
+- Comprehensive component menu — INSTALL.md lays out the full two-tier model: Core plus à-la-carte enhancements (hooks, statusline, tooltips, spinner verbs, agents, Pulse, background jobs)
+- The `lifeos` launch alias wires `--append-system-prompt-file` so the constitutional layer actually loads
+- One canonical INSTALL.md rendered at ourlifeos.ai/install for humans and AIs
+
+**[Get v6.0.3 →](v6.0.3/)**
+
+---
+
+### v6.0.2 — .md-first AI-native install
+
+Skill-only distribution with an AI-native, `.md`-first install.
+
+- The whole system ships as one self-contained LifeOS/ skill
+- The shipped install.sh pins v6.0.2 and points at danielmiessler/LifeOS
+- Security-clean: 15/15 release gates plus emit-time contract, staleness, and payload gates
+
+**[Get v6.0.2 →](v6.0.2/)**
+
+---
+
+### v6.0.0 — The Life Operating System
+
+LifeOS ships as a single self-contained skill, not a `.claude/` copy — the full framework installs through your AI.
+
+- Algorithm v6.23.0
+- Two-tier core components: Current→Ideal, the Algorithm, Skills, Hooks, Router, Pulse, custom spinner verbs, and custom tooltips, plus the supporting subsystems (Memory, Agents, Voice, Learning, Security)
+- Skill-only distribution via the LifeOS install skill
+- Full Pulse Life Dashboard + menu bar app
+
+**[Get v6.0.0 →](v6.0.0/)**
+
+---
+
+## Legacy Releases (`.claude/`-era)
+
+These predate the skill model — they shipped as `~/.claude/` directories. Kept for history; **not** the current install path.
+
+### v5.0.0 — Life Operating System
+
+The release that reframed the whole system as a Life Operating System built around the move from current state to ideal state.
+
+**[Get v5.0.0 →](v5.0.0/)**
+
+---
+
+### v4.0.3 — Community PR Patch
 
 4 community-contributed fixes from open PRs.
 
@@ -92,7 +159,7 @@ The Algorithm reaches v1.4.0 with constraint extraction, build drift prevention,
 
 ### v2.5.0 — Think Deeper, Execute Faster
 
-The Algorithm learns metacognition—thinking about how it thinks—and parallel execution.
+The Algorithm learns metacognition — thinking about how it thinks — and parallel execution.
 
 - 28 Skills, 17 Hooks, 356 Workflows
 - Two-pass capability selection with ISC validation
@@ -131,27 +198,30 @@ The release that introduced persistent learning and sentiment capture.
 
 ## Installation
 
-```bash
-# 1. Clone the repo
-git clone https://github.com/danielmiessler/Personal_AI_Infrastructure.git
-cd Personal_AI_Infrastructure/Releases/v4.0.3
+LifeOS installs as a skill — give it to your AI. Paste this into any capable harness (Claude Code, Cursor, Codex, …):
 
-# 2. Copy the release and run the installer
-cp -r .claude ~/ && cd ~/.claude && bash install.sh
+> **Read https://ourlifeos.ai/install and install LifeOS for me.**
+
+Or the one-line shortcut for Claude Code on macOS/Linux:
+
+```bash
+curl -fsSL https://ourlifeos.ai/install.sh | bash
 ```
 
-The wizard asks for your name, AI name, timezone, temperature unit, and optional voice preferences.
+The install asks for your name, AI name, timezone, temperature unit, and optional voice preferences.
 
-See the [main README](../README.md#upgrading-from-a-previous-version) for upgrade instructions.
+**Legacy releases (v2–v5)** installed the old way — as a `~/.claude/` directory with their own `install.sh`. That's no longer how LifeOS works; if you specifically need an old version, follow that release's own README. New installs use the skill above.
+
+See the [main README](../README.md) for more.
 
 ---
 
 ## Troubleshooting
 
-**Can't see .claude directory?** It's hidden. Use `ls -la ~/` or press `Cmd+Shift+.` in Finder.
+**Install didn't take?** Re-run it — just ask your AI to install LifeOS again from [ourlifeos.ai/install](https://ourlifeos.ai/install).
 
-**Hooks not firing?** Restart Claude Code after installation.
+**Hooks not firing?** Restart your harness after installation.
 
 ---
 
-**Questions?** See the main [PAI README](../README.md).
+**Questions?** See the main [LifeOS README](../README.md).
