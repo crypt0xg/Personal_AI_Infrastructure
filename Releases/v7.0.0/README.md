@@ -50,8 +50,10 @@ Thanks to the contributors whose fixes ship in this release: a work-events repla
 
 ## Install
 
+**Give it to your AI.** Paste this into Claude Code and say **"install this"** — your AI does the whole setup.
+
 ```bash
 curl -fsSL https://ourlifeos.ai/install.sh | bash
 ```
 
-Hand the installer to your own AI. It is AI-native: everything ships inside one self-contained `LifeOS/` skill.
+Prefer the terminal? Run the same command yourself. You'll need **Claude Code** and **bun**. Everything ships inside one self-contained `LifeOS/` skill.
